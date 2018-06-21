@@ -32,8 +32,9 @@ app.use(express.static("public"));
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_pjzh1v08:5Riov5ReVlzNNj0C_6oZiTWr63ym_F48@ds163300.mlab.com:63300/heroku_pjzh1v08");
-var db = mongoose.connection;
+mongoose.connect(MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines");
+// mongoose.connect("mongodb://heroku_pjzh1v08:5Riov5ReVlzNNj0C_6oZiTWr63ym_F48@ds163300.mlab.com:63300/heroku_pjzh1v08");
+// var db = mongoose.connection;
 // Routes
 
 // A GET route for scraping the echojs website
