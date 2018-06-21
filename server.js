@@ -11,8 +11,11 @@ var cheerio = require("cheerio");
 
 // Require all models
 var db = require("./models");
+// ===========================
+// Above is pretty much taken from week 10 activity 20
+// ===========================
 
-var PORT = 3000;
+var PORT = process.env.PORT || 8000;
 
 // Initialize Express
 var app = express();
@@ -29,10 +32,8 @@ app.use(express.static("public"));
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/week18Populater", {
-  useMongoClient: true
-});
-
+mongoose.connect("mongodb://heroku_pjzh1v08:5Riov5ReVlzNNj0C_6oZiTWr63ym_F48@ds163300.mlab.com:63300/heroku_pjzh1v08");
+var db = mongoose.connection;
 // Routes
 
 // A GET route for scraping the echojs website
